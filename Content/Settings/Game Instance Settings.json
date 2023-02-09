@@ -1,0 +1,13 @@
+{
+	"ID": "f613c26647a5716f6eccf18f7e5aaed5",
+	"TypeName": "ArizonaFramework.GameInstanceSettings",
+	"EngineBuild": 6336,
+	"Data": {
+	"GameModeType": "Game.MyGameMode",
+	"GameStateType": "Game.MyGameState",
+	"PlayerStateType": "Game.MyPlayerState",
+	"PlayerPawnPrefab": "4e5bd2d448f876e8b35957b228356c39",
+	"PlayerControllerPrefab": "81cedfde451adc242863ae92be66df60",
+	"PlayerUIPrefab": "3662470f4d7ed5c777125691a9234ee5"
+}
+}

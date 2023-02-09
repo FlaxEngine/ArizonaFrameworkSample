@@ -1,0 +1,39 @@
+{
+	"ID": "5807b0bd4b5b2ae80bcfae876cb66d92",
+	"TypeName": "FlaxEditor.Content.Settings.GameSettings",
+	"EngineBuild": 6336,
+	"Data": {
+	"ProductName": "ArizonaFrameworkSample",
+	"CompanyName": "Flax",
+	"CopyrightNotice": "",
+	"Icon": null,
+	"FirstScene": "c3d04067492fcfcb4cbac5a8c1df9440",
+	"NoSplashScreen": false,
+	"SplashScreen": null,
+	"Time": "5ba5e0ad4abea5addf8a94bc9c37dd77",
+	"Audio": "87d80be44c5a57039e6433931e2119b5",
+	"LayersAndTags": "22afb41f4cb39c257ee3628e7ef95ba6",
+	"Physics": "07a6aae34c009c3048eb93b458bd85df",
+	"Input": "f4c1c67842f6b745a6976aa8e7eff360",
+	"Graphics": "d98d01d34584e13c0a952aa91bea43ac",
+	"Network": "837e13f846891f112631629391002427",
+	"Navigation": "e69bf8424c403c6d399da9b1d5a5b3af",
+	"Localization": "16f96e5b424bfe1998050681612b57f8",
+	"GameCooking": "c310034d4b660789cb61369688ed476f",
+	"Streaming": "e990ba524007a53f91c64b95455681aa",
+	"CustomSettings": {
+		"GameInstance": "f613c26647a5716f6eccf18f7e5aaed5",
+		"MySettings": "67af53ca40f8ed188482309012d592bd"
+	},
+	"WindowsPlatform": "556b9cdd4618934b54e881ac9fb26b0f",
+	"UWPPlatform": "629f44e343f65f54c7dbc4b4e25614b2",
+	"LinuxPlatform": "84b222064f5e1862b53c8aa0bfdb1690",
+	"PS4Platform": null,
+	"XboxOnePlatform": null,
+	"XboxScarlettPlatform": null,
+	"AndroidPlatform": null,
+	"SwitchPlatform": null,
+	"PS5Platform": null,
+	"MacPlatform": null
+}
+}

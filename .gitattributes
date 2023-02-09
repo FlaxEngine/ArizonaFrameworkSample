@@ -1,0 +1,3 @@
+# Source code files
+*.cpp crlf diff
+*.cs crlf diff

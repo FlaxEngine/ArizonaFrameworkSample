@@ -1,0 +1,93 @@
+{
+	"ID": "4e5bd2d448f876e8b35957b228356c39",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6336,
+	"Data": [
+	{
+		"ID": "1fe29e3a45280e636f59d2b5ac02373e",
+		"TypeName": "FlaxEngine.CharacterController",
+		"Name": "Player",
+		"StaticFlags": 0,
+		"Tag": "Player",
+		"Radius": 40.0,
+		"Height": 80.0
+	},
+	{
+		"ID": "9b3070ea4d8291c7b4b9b4b53143a37f",
+		"TypeName": "FlaxEngine.Networking.NetworkTransform",
+		"ParentID": "1fe29e3a45280e636f59d2b5ac02373e",
+		"Mode": 2
+	},
+	{
+		"ID": "f5786dd84aa888a44acdb0b85d11a1f7",
+		"TypeName": "Game.MyPlayerPawn",
+		"ParentID": "1fe29e3a45280e636f59d2b5ac02373e",
+		"V": {
+	"VisualMesh": "00ecff094893868731d4fe8b74464c8d",
+	"CameraTarget": "ff34368c4606c0b875cdfaa204feecbf",
+	"Camera": "be61955a414b51dbd4ce4ea550baecf3"
+}
+	},
+	{
+		"ID": "00ecff094893868731d4fe8b74464c8d",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "1fe29e3a45280e636f59d2b5ac02373e",
+		"Name": "Mesh",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": -80.0,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 1.600000023841858,
+				"Y": 1.600000023841858,
+				"Z": 1.600000023841858
+			}
+		},
+		"StaticFlags": 0,
+		"Tag": "Player",
+		"Model": "3f82e57744f57c28285150b646ad2198",
+		"DrawModes": 31,
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "3f37f9d84730ba7a44c444bf2895bef6",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "ff34368c4606c0b875cdfaa204feecbf",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "1fe29e3a45280e636f59d2b5ac02373e",
+		"Name": "Camera Target",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 49.96495819091797,
+				"Z": 22.36142921447754
+			}
+		},
+		"StaticFlags": 0
+	},
+	{
+		"ID": "be61955a414b51dbd4ce4ea550baecf3",
+		"TypeName": "FlaxEngine.Camera",
+		"ParentID": "1fe29e3a45280e636f59d2b5ac02373e",
+		"Name": "Camera",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 49.96495819091797,
+				"Z": 22.36142921447754
+			}
+		},
+		"StaticFlags": 0,
+		"RenderLayersMask": 4294967293
+	}
+]
+}

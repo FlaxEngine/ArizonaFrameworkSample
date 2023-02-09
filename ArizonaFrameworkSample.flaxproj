@@ -1,0 +1,30 @@
+{
+	"Name": "Arizona Framework Sample",
+	"Version": "1.0",
+	"Company": "Wojciech Figat",
+	"Copyright": "Copyright (c) Wojciech Figat. All rights reserved.",
+	"GameTarget": "GameTarget",
+	"EditorTarget": "GameEditorTarget",
+	"References": [
+		{
+			"Name": "$(EnginePath)/Flax.flaxproj"
+		},
+		{
+			"Name": "$(ProjectPath)/Plugins/ArizonaFramework/ArizonaFramework.flaxproj"
+		}
+	],
+	"DefaultScene": "c3d04067492fcfcb4cbac5a8c1df9440",
+	"DefaultSceneSpawn": {
+		"Position": {
+			"X": -202.999481,
+			"Y": 216.48819,
+			"Z": -430.049561
+		},
+		"Direction": {
+			"X": 0.62395066,
+			"Y": -0.249079928,
+			"Z": 0.7407056
+		}
+	},
+	"MinEngineVersion": "1.5"
+}

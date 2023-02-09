@@ -1,0 +1,10 @@
+{
+	"ID": "67af53ca40f8ed188482309012d592bd",
+	"TypeName": "Game.MySettings",
+	"EngineBuild": 6336,
+	"Data": {
+	"MainMenuLevel": "c3d04067492fcfcb4cbac5a8c1df9440",
+	"GameLevel": "dbbf09b04712ddbee3b87aa15eeb44b8",
+	"PauseMenuPrefab": "96a44435490b66452cb9afb3fbe5b7d5"
+}
+}

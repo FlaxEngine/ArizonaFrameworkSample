@@ -1,0 +1,10 @@
+{
+	"ID": "87d80be44c5a57039e6433931e2119b5",
+	"TypeName": "FlaxEditor.Content.Settings.AudioSettings",
+	"EngineBuild": 6336,
+	"Data": {
+	"DisableAudio": false,
+	"DopplerFactor": 1.0,
+	"MuteOnFocusLoss": true
+}
+}

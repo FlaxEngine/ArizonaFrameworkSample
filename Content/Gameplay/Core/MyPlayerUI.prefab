@@ -1,0 +1,222 @@
+{
+	"ID": "3662470f4d7ed5c777125691a9234ee5",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6336,
+	"Data": [
+	{
+		"ID": "5eb2194a43fb326465878cb31cf03c2f",
+		"TypeName": "FlaxEngine.UICanvas",
+		"Name": "PlayerUI",
+		"Transform": {
+			"Orientation": {
+				"X": 1.0,
+				"Y": 4.371138828673793e-8,
+				"Z": 4.371138828673793e-8,
+				"W": 1.910685465164705e-15
+			}
+		},
+		"StaticFlags": 0,
+		"V": {}
+	},
+	{
+		"ID": "ae6651ab44cdd7ce32e0a8830e330703",
+		"TypeName": "Game.MyPlayerUI",
+		"ParentID": "5eb2194a43fb326465878cb31cf03c2f",
+		"V": {
+	"TextLabel": "51be942b409029e0f6f88c8e4aaa6483"
+}
+	},
+	{
+		"ID": "1aa67a9f41c83c840e8696a8e461b044",
+		"TypeName": "FlaxEngine.UIControl",
+		"ParentID": "5eb2194a43fb326465878cb31cf03c2f",
+		"Name": "CanvasScaler",
+		"Transform": {
+			"Orientation": {
+				"X": 1.0,
+				"Y": 4.371138828673793e-8,
+				"Z": 4.371138828673793e-8,
+				"W": 1.910685465164705e-15
+			}
+		},
+		"StaticFlags": 0,
+		"Control": "FlaxEngine.GUI.CanvasScaler",
+		"Data": {
+	"ResolutionCurve": {
+		"Keyframes": [
+			{
+				"Time": 480.0,
+				"Value": 0.444
+			},
+			{
+				"Time": 720.0,
+				"Value": 0.666
+			},
+			{
+				"Time": 1080.0,
+				"Value": 1.0
+			},
+			{
+				"Time": 8640.0,
+				"Value": 8.0
+			}
+		]
+	},
+	"DpiCurve": {
+		"Keyframes": [
+			{
+				"Time": 1.0,
+				"Value": 1.0
+			},
+			{
+				"Time": 96.0,
+				"Value": 1.0
+			},
+			{
+				"Time": 200.0,
+				"Value": 2.0
+			},
+			{
+				"Time": 400.0,
+				"Value": 4.0
+			}
+		]
+	},
+	"Scaling": 2,
+	"ScaleFactor": 1.0,
+	"PhysicalUnit": 3,
+	"PhysicalUnitSize": 1.0,
+	"ResolutionMode": 0,
+	"ResolutionMin": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"ResolutionMax": {
+		"X": 10000.0,
+		"Y": 10000.0
+	},
+	"ClipChildren": true,
+	"CullChildren": true,
+	"AnchorMin": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"AnchorMax": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Offsets": {
+		"Left": 0.0,
+		"Right": 0.0,
+		"Top": 0.0,
+		"Bottom": 0.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 0.0,
+		"G": 0.0,
+		"B": 0.0,
+		"A": 0.0
+	},
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": true
+}
+	},
+	{
+		"ID": "51be942b409029e0f6f88c8e4aaa6483",
+		"TypeName": "FlaxEngine.UIControl",
+		"ParentID": "1aa67a9f41c83c840e8696a8e461b044",
+		"Name": "Text Label",
+		"StaticFlags": 0,
+		"Control": "FlaxEngine.GUI.Label",
+		"Data": {
+	"Text": "Player State Info",
+	"TextColor": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"TextColorHighlighted": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"HorizontalAlignment": 0,
+	"VerticalAlignment": 0,
+	"Wrapping": 0,
+	"Font": {
+		"Font": "4508d98f4aa1f0bd59362b81d47e38f4",
+		"Size": 20
+	},
+	"Material": null,
+	"Margin": {
+		"Left": 20.0,
+		"Right": 20.0,
+		"Top": 20.0,
+		"Bottom": 20.0
+	},
+	"ClipText": false,
+	"AutoWidth": false,
+	"AutoHeight": false,
+	"AutoFitText": false,
+	"AutoFitTextRange": {
+		"X": 0.1,
+		"Y": 100.0
+	},
+	"ClipChildren": true,
+	"CullChildren": true,
+	"AnchorMin": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"AnchorMax": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Offsets": {
+		"Left": 0.0,
+		"Right": 500.0,
+		"Top": 0.0,
+		"Bottom": 200.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 0.0,
+		"G": 0.0,
+		"B": 0.0,
+		"A": 0.0
+	},
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": false
+}
+	}
+]
+}
