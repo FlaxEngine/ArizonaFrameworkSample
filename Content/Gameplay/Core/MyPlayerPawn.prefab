@@ -25,7 +25,8 @@
 		"V": {
 	"VisualMesh": "00ecff094893868731d4fe8b74464c8d",
 	"CameraTarget": "ff34368c4606c0b875cdfaa204feecbf",
-	"Camera": "be61955a414b51dbd4ce4ea550baecf3"
+	"Camera": "be61955a414b51dbd4ce4ea550baecf3",
+	"ShootRibbonTrailParticles": "1263ab484a07beaec3b0ff9dd853924b"
 }
 	},
 	{

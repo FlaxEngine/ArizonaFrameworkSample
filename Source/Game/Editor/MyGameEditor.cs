@@ -6,7 +6,7 @@ using FlaxEditor.Content;
 using FlaxEngine;
 using FlaxEngine.Networking;
 
-namespace Game.Game.Editor
+namespace Game.Editor
 {
     /// <summary>
     /// Custom Editor-extensions for game implemented as Editor Plugin.

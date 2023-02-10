@@ -34,9 +34,23 @@ namespace Game
             base.StopGame();
         }
 
+        /// <inheritdoc/>
         public override void OnPlayerSpawned(PlayerState playerState)
         {
             base.OnPlayerSpawned(playerState);
+
+            RespawmPlayer(playerState);
+        }
+
+        /// <summary>
+        /// Spawns player at random spawn point and resets health.
+        /// </summary>
+        /// <param name="playerState">The player to respawm.</param>
+        public void RespawmPlayer(PlayerState playerState)
+        {
+            // Reset health
+            var state = (MyPlayerState)playerState;
+            state.Health = 100.0f;
 
             // Spawn player at proper location
             var spawnPoints = LevelsManager.Instance.SpawnPoints;

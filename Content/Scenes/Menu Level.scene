@@ -112,7 +112,10 @@
 					"OverrideFlags": 1,
 					"Intensity": 0.0
 				},
-				"AA": {},
+				"AA": {
+					"OverrideFlags": 1,
+					"Mode": 0
+				},
 				"PostFxMaterials": {}
 			}
 		},
@@ -259,7 +262,7 @@
 			"Name": "HorizontalPanel",
 			"Transform": {
 				"Translation": {
-					"X": 238.34109497070313,
+					"X": 206.99996948242188,
 					"Y": 145.270263671875,
 					"Z": 0.0
 				}

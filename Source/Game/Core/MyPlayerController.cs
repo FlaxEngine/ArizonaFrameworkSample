@@ -31,19 +31,25 @@ namespace Game
         public bool CanJump = true;
 
         [EditorDisplay("Input")]
+        public bool CanShoot = true;
+
+        [EditorDisplay("Input")]
         public float JumpForce = 800;
 
         [EditorDisplay("Camera")]
         public float CameraSmoothing = 20.0f;
 
-        private float _translationSumServerCheck;
-        private float _translationSumLastTime;
         private Vector3 _velocity;
-        private bool _jump;
         private float _pitch;
         private float _yaw;
         private float _horizontal;
         private float _vertical;
+
+        /// <summary>
+        /// Current player camera view direction (in world-space). Managed by client and replicated to server.
+        /// </summary>
+        [ReadOnly, NetworkReplicated, EditorDisplay("Debug")]
+        public Quaternion ViewDirection;
 
         /// <summary>
         /// Adds the movement and rotation to the camera (as input).
@@ -96,8 +102,15 @@ namespace Game
             }
 
             // Jump
-            if (useInput && CanJump && Input.GetAction("Jump"))
-                _jump = true;
+            bool jump = useInput && CanJump && Input.GetAction("Jump");
+
+            // Shoot
+            if (useInput && CanShoot && Input.GetAction("Shoot"))
+            {
+                // TODO: for smoother gameplay local client could run shooting visualization before server confirms result
+                var shootRay = GetCameraRay();
+                ShootRpc(shootRay);
+            }
 
             // Update camera
             var camTrans = pawn.Camera.Transform;
@@ -132,9 +145,8 @@ namespace Game
                 velocity = Vector3.Zero;
 
             // Jump
-            if (_jump && pawn.Controller.IsGrounded)
+            if (jump && pawn.Controller.IsGrounded)
                 velocity.Y = JumpForce;
-            _jump = false;
 
             // Apply gravity
             velocity.Y += -Mathf.Abs(Physics.Gravity.Y * 2.5f) * Time.DeltaTime;
@@ -152,44 +164,55 @@ namespace Game
             // Move
             MovePawn(velocity * Time.DeltaTime, Quaternion.Identity);
             _velocity = velocity;
-
-            if (Input.GetKeyDown(KeyboardKeys.H))
-            {
-                Time.UpdateFPS = Time.DrawFPS = Time.PhysicsFPS = 20.0f;
-            }
-            else if (Input.GetKeyDown(KeyboardKeys.J))
-            {
-                Time.UpdateFPS = Time.DrawFPS = Time.PhysicsFPS = 60.0f;
-            }
-        }
-
-        /// <inheritdoc />
-        public override void OnLateUpdate()
-        {
-            base.OnLateUpdate();
-
-            // Clear pawn movement after update, prevents from cheating by sending X small movement deltas which sum is too big
-            if (_translationSumServerCheck > 0)
-            {
-                _translationSumServerCheck = 0.0f;
-                _translationSumLastTime = Time.GameTime;
-            }
+            ViewDirection = pawn.Camera.Orientation;
         }
 
         /// <inheritdoc />
         public override bool OnValidateMove(Vector3 translation, Quaternion rotation)
         {
-            // Prevent cheating (server-side)
-            // Accumulate translation vector over move requests and reject move if the sum is too high
-            // Use movement length over time to handle case when connected player has low perf (eg. 15 fps) thus sends large translation vectors due to large delta time locally
-            _translationSumServerCheck += translation.Length;
-            float timeSinceLastMove = Mathf.Max(Time.GameTime - _translationSumLastTime, 0.0000001f);
-            float translationSinceLastMove = _translationSumServerCheck / timeSinceLastMove;
-            float maxVelocity = Mathf.Max(MaxVelocityGround, MaxVelocityAir) * 4.0f;
-            if (translationSinceLastMove > maxVelocity)
-                return false;
-
+            // TODO: validate movement to prevent player cheating (server-authority)
             return base.OnValidateMove(translation, rotation);
+        }
+
+        /// <summary>
+        /// Server RPC called when local player wants to shoot. Executed on a server to validate the state and apply damage on server to hit enemy.
+        /// </summary>
+        /// <param name="shootRay">World-space ray of the bullet trajectory.</param>
+        [NetworkRpc(Server = true)]
+        private void ShootRpc(Ray shootRay)
+        {
+            var pawn = (MyPlayerPawn)PlayerPawn;
+            // TODO: validate input ray position/direction to prevent player cheating (server-authority)
+            
+            // Execute shooting
+            // TODO: implement weapon spread (based on player velocity)
+            var maxDistance = 10000.0f;
+            shootRay.Position += shootRay.Direction * 42.0f;
+            var hit = Physics.RayCast(shootRay.Position, shootRay.Direction, out var hitInfo, maxDistance, uint.MaxValue, false);
+            var hitEnd = shootRay.GetPoint(hit ? hitInfo.Distance : maxDistance);
+            /*if (hit)
+            {
+                DebugDraw.DrawSphere(new BoundingSphere(shootRay.Position, 5.0f), Color.Gray, 100000, true);
+                DebugDraw.DrawSphere(new BoundingSphere(hitEnd, 5.0f), Color.Black, 100000, true);
+                DebugDraw.DrawLine(shootRay.Position, hitEnd, Color.Red, 10000, true);
+            }*/
+
+            // Apply damage
+            if (hit)
+            {
+                var entity = hitInfo.Collider.GetEntity();
+                if (entity != null && entity != pawn && entity.CanDamage)
+                    entity.ApplyDamage(pawn.Damage, hitEnd, shootRay.Direction, pawn);
+            }
+            
+            // Render visuals (on all connected clients via Client RPC)
+            pawn.OnShootRpc(shootRay.Position, hitEnd);
+        }
+
+        private Ray GetCameraRay()
+        {
+            var pawn = (MyPlayerPawn)PlayerPawn;
+            return new Ray(pawn.Camera.Position, Float3.Forward * ViewDirection);
         }
 
         // accelDir: normalized direction that the player has requested to move (taking into account the movement keys and look direction)

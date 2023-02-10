@@ -1,4 +1,3 @@
-using System;
 using ArizonaFramework;
 using FlaxEngine;
 using FlaxEngine.GUI;

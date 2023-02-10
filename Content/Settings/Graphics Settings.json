@@ -282,7 +282,7 @@
 			"TAA_JitterSpread": 0.75,
 			"TAA_Sharpness": 0.0,
 			"TAA_StationaryBlending": 0.95,
-			"TAA_MotionBlending": 0.4
+			"TAA_MotionBlending": 0.7
 		},
 		"PostFxMaterials": {
 			"Materials": null

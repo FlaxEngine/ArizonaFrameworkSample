@@ -59,6 +59,14 @@
 			"MouseButton": 0,
 			"GamepadButton": 13,
 			"Gamepad": -1
+		},
+		{
+			"Name": "Shoot",
+			"Mode": 1,
+			"Key": 0,
+			"MouseButton": 1,
+			"GamepadButton": 15,
+			"Gamepad": -1
 		}
 	],
 	"AxisMappings": [
