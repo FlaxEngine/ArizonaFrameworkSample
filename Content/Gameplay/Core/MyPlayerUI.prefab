@@ -16,7 +16,10 @@
 			}
 		},
 		"StaticFlags": 0,
-		"V": {}
+		"V": {
+	"Order": -100,
+	"ReceivesEvents": false
+}
 	},
 	{
 		"ID": "ae6651ab44cdd7ce32e0a8830e330703",
@@ -132,7 +135,7 @@
 	},
 	"Enabled": true,
 	"Visible": true,
-	"AutoFocus": true
+	"AutoFocus": false
 }
 	},
 	{

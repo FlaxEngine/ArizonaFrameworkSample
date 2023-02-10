@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using FlaxEditor.Content.Settings;
@@ -36,11 +35,15 @@ namespace Game
 
         private void UpdateUI()
         {
+            var hasFocus = Engine.HasGameViewportFocus;
             var state = NetworkManager.State;
             foreach (var panel in ConnectionPanels.Values.Distinct())
             {
                 panel.IsActive = ConnectionPanels.Any(x => x.Key == state && x.Value == panel);
             }
+
+            if (hasFocus)
+                Engine.FocusGameViewport();
         }
 
         private void SetupOptions()
@@ -98,12 +101,20 @@ namespace Game
             NetworkManager.StateChanged += UpdateUI;
 
             UpdateUI();
+            Engine.FocusGameViewport();
+
+            // When running in headless mode start server by default
+            if (Engine.IsHeadless)
+            {
+                Debug.Log("Auto-start server in headless mode");
+                OnStartServer();
+            }
         }
 
         /// <inheritdoc/>
         public override void OnDisable()
         {
-            // Link for events
+            // Unlink from events
             ((Button)ConnectButton.Control).Clicked -= OnConnect;
             ((Button)StartServerButton.Control).Clicked -= OnStartServer;
             ((Button)HostButton.Control).Clicked -= OnHost;
