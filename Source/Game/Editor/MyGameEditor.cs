@@ -56,7 +56,7 @@ namespace Game.Editor
             var mySettings = MySettings.Instance;
             if (mySettings == null)
                 return;
-            if (NetworkManager.State == NetworkConnectionState.Offline && Level.FindActor(mySettings.MainMenuLevel.ID) == null)
+            if (NetworkManager.IsOffline && Level.FindScene(mySettings.MainMenuLevel.ID) == null)
             {
                 // Play locally
                 GameInstance.Instance.StartGame();

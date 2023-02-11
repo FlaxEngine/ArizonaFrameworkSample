@@ -38,6 +38,13 @@ namespace Game
 
         private void OnNetworkStateChanged()
         {
+#if FLAX_EDITOR
+            // Skip level transitions when editor starts/end splay mode
+            var playingState = FlaxEditor.Editor.Instance.StateMachine.PlayingState;
+            if (playingState.IsPlayModeStarting || playingState.IsPlayModeEnding)
+                return;
+#endif
+
             // Select target scene to go to
             var mySettings = MySettings.Instance;
             var targetScene = mySettings.MainMenuLevel; // Go to menu by default
@@ -47,7 +54,7 @@ namespace Game
             }
 
             // Load that scene (skip if already loaded)
-            if (Level.FindActor(targetScene.ID) != null)
+            if (Level.FindScene(targetScene.ID) != null)
                 return;
             Level.UnloadAllScenesAsync();
             Level.LoadSceneAsync(targetScene);
