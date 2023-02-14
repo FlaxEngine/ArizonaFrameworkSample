@@ -4,6 +4,14 @@
 
 Sample project showcasing usage of [Arizona Framework](https://github.com/FlaxEngine/ArizonaFramework) for [Flax Engine](https://flaxengine.com/).
 
+## Installation
+
+0. Ensure to have proper system setup for C++ Scripting - see [Flax Docs](https://docs.flaxengine.com/manual/scripting/cpp/index.html)
+
+1. Clone repo `ArizonaFrameworkSample` (with submodules: `git submodule update --init --recursive`)
+
+2. Run `ArizonaFrameworkSample.flaxproj`
+
 ## License
 
 Both this sample and Arizona Framework are released under **MIT License**.
