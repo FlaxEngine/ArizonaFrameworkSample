@@ -48,7 +48,8 @@ namespace Game
         public override void OnDisable()
         {
             // Resume
-            UserManager.Instance.IsGamePaused = false;
+            if (UserManager.Instance != null)
+                UserManager.Instance.IsGamePaused = false;
             Engine.FocusGameViewport();
 
             base.OnDisable();
