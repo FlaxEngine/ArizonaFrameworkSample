@@ -75,6 +75,18 @@ namespace Game
         }
 
         /// <inheritdoc />
+        public override void OnDisable()
+        {
+            base.OnDisable();
+
+            if (UseMouse)
+            {
+                Screen.CursorVisible = true;
+                Screen.CursorLock = CursorLockMode.None;
+            }
+        }
+
+        /// <inheritdoc />
         public override void OnUpdateInput()
         {
             var pawn = PlayerPawn as MyPlayerPawn;
@@ -183,7 +195,7 @@ namespace Game
         {
             var pawn = (MyPlayerPawn)PlayerPawn;
             // TODO: validate input ray position/direction to prevent player cheating (server-authority)
-            
+
             // Execute shooting
             // TODO: implement weapon spread (based on player velocity)
             var maxDistance = 10000.0f;
@@ -201,10 +213,10 @@ namespace Game
             if (hit)
             {
                 var entity = hitInfo.Collider.GetEntity();
-                if (entity != null && entity != pawn && entity.CanDamage)
+                if (entity != null && entity != (object)pawn && entity.CanDamage)
                     entity.ApplyDamage(pawn.Damage, hitEnd, shootRay.Direction, pawn);
             }
-            
+
             // Render visuals (on all connected clients via Client RPC)
             pawn.OnShootRpc(shootRay.Position, hitEnd);
         }

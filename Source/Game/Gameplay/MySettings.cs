@@ -31,10 +31,7 @@ namespace Game
             get
             {
                 var settings = Engine.GetCustomSettings(nameof(MySettings));
-                var mySettings = settings?.Instance as MySettings;
-                if (mySettings == null)
-                    throw new Exception("Missing MySettings");
-                return mySettings;
+                return settings?.Instance as MySettings;
             }
         }
     }

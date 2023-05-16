@@ -103,6 +103,9 @@ namespace Game
             UpdateUI();
             Engine.FocusGameViewport();
 
+            Screen.CursorLock = CursorLockMode.None;
+            Screen.CursorVisible = true;
+
             // When running in headless mode start server by default
             if (Engine.IsHeadless)
             {
