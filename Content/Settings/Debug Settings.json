@@ -1,0 +1,13 @@
+{
+	"ID": "f5acfef1474a1bca8607098c7c28c4f5",
+	"TypeName": "ArizonaFramework.Debug.DebugSettings",
+	"EngineBuild": 6606,
+	"Data": {
+	"DebugMenuOpen": "DebugOpen",
+	"DebugWindows": [
+		"ArizonaFramework.Debug.DebugGeneralConsoleWindow",
+		"ArizonaFramework.Debug.DebugGeneralToolsWindow",
+		"ArizonaFramework.Debug.DebugSceneTreeWindow"
+	]
+}
+}
