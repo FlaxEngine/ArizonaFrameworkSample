@@ -1,5 +1,6 @@
 using System;
 using ArizonaFramework;
+using ArizonaFramework.UI;
 using FlaxEngine;
 
 namespace Game
@@ -92,7 +93,9 @@ namespace Game
             var pawn = PlayerPawn as MyPlayerPawn;
             if (pawn == null)
                 throw new Exception("Missing player pawn.");
-            var useInput = Engine.HasGameViewportFocus && !UserManager.Instance.IsGamePaused;
+            var useInput = Engine.HasGameViewportFocus &&
+                           !UserManager.Instance.IsGamePaused &&
+                           UISystem.Instance.InputContext == InputContextType.Gameplay;
 
             // Movement
             if (useInput)
