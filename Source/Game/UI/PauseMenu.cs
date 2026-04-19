@@ -12,6 +12,7 @@ namespace Game
     {
         public UIControl ContinueButton;
         public UIControl DisconnectButton;
+        private int _skipFrames;
 
         /// <inheritdoc/>
         public override void OnStart()
@@ -32,11 +33,14 @@ namespace Game
             UserManager.Instance.IsGamePaused = true;
             Screen.CursorLock = CursorLockMode.None;
             Screen.CursorVisible = true;
+            _skipFrames = 4;
         }
 
         /// <inheritdoc/>
         public override void OnUpdate()
         {
+            if (_skipFrames-- > 0)
+                return;
             if (!Engine.HasGameViewportFocus)
                 return;
             if (Input.GetKeyUp(KeyboardKeys.Escape) || Input.GetGamepadButtonUp(InputGamepadIndex.All, GamepadButton.Back))
